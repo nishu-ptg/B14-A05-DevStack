@@ -10,7 +10,7 @@ const NavMenuDesktop = ({
   onItemClick,
 }: INavMenuDesktopProps) => {
   return (
-    <ul className="flex space-x-7.5">
+    <ul className="hidden md:flex space-x-7.5">
       {items.map((item) => (
         <li key={item}>
           <a
