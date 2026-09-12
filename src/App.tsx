@@ -1,17 +1,16 @@
-import { toast } from "react-toastify";
 import "./App.css";
+import Banner from "./components/Banner/Banner";
+import Footer from "./components/Footer/Footer";
+import NavBar from "./components/NavBar/NavBar";
+import Technologies from "./components/Technologies/Technologies";
 
 function App() {
   return (
     <>
-      <div className="flex h-96 items-center justify-center bg-gray-100">
-        <button
-          className="btn btn-primary"
-          onClick={() => toast("Toast working!")}
-        >
-          Click Me
-        </button>
-      </div>
+      <NavBar />
+      <Banner />
+      <Technologies />
+      <Footer />
     </>
   );
 }
