@@ -5,16 +5,20 @@ interface TechBoxProps {
   item: ITechItem;
   isAdded: boolean;
   onAdd: (item: ITechItem) => void;
+  badgeClass: string;
 }
 
-const TechBox = ({ item, isAdded, onAdd }: TechBoxProps) => {
+const TechBox = ({ item, isAdded, onAdd, badgeClass }: TechBoxProps) => {
   return (
     <div className="card border border-slate-100 rounded-xl shadow-md">
       <div className="card-body">
         <div className="flex items-center justify-between mb-3">
           <img src={item.icon} alt={item.name} className="w-10 h-10" />
 
-          <span className="badge badge-outline bg-slate-50 text-slate-600 border-slate-200 rounded-full font-semibold text-xs">
+          {/* <span className="badge badge-outline bg-slate-50 text-slate-600 border-slate-200 rounded-full font-semibold text-xs"> */}
+          <span
+            className={`badge badge-outline rounded-full font-semibold text-xs ${badgeClass}`}
+          >
             {item.badge}
           </span>
         </div>
