@@ -1,4 +1,23 @@
 import logoText from "../../assets/logo-text.png";
+import type { ILinkItem } from "../../types/linkItem";
+import FooterLinks from "./FooterLinks";
+
+const productLinks: ILinkItem[] = [
+  { label: "Home" },
+  { label: "Technologies" },
+  { label: "Projects" },
+];
+
+const companyLinks: ILinkItem[] = [
+  { label: "About Us" },
+  { label: "Careers" },
+  { label: "Contact" },
+];
+
+const legalLinks: ILinkItem[] = [
+  { label: "Privacy Policy" },
+  { label: "Terms of Service" },
+];
 
 const Footer = () => {
   return (
@@ -28,53 +47,9 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="hidden md:block col-span-1">
-          <h3 className="uppercase text-slate-900 font-bold text-xs mb-4">
-            Product
-          </h3>
-          <ul className="space-y-3 mb-5 text-xs text-slate-500">
-            <li>
-              <a href="#">Home</a>
-            </li>
-            <li>
-              <a href="#">Technologies</a>
-            </li>
-            <li>
-              <a href="#">Projects</a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="hidden md:block col-span-1">
-          <h3 className="uppercase text-slate-900 font-bold text-xs mb-4">
-            Company
-          </h3>
-          <ul className="space-y-3 mb-5 text-xs text-slate-500">
-            <li>
-              <a href="#">About</a>
-            </li>
-            <li>
-              <a href="#">Contact</a>
-            </li>
-            <li>
-              <a href="#">Careers</a>
-            </li>
-          </ul>
-        </div>
-
-        <div className="hidden md:block col-span-1">
-          <h3 className="uppercase text-slate-900 font-bold text-xs mb-4">
-            Legal
-          </h3>
-          <ul className="space-y-3 mb-5 text-xs text-slate-500">
-            <li>
-              <a href="#">Privacy Policy</a>
-            </li>
-            <li>
-              <a href="#">Terms of Service</a>
-            </li>
-          </ul>
-        </div>
+        <FooterLinks title="Product" links={productLinks} />
+        <FooterLinks title="Company" links={companyLinks} />
+        <FooterLinks title="Legal" links={legalLinks} />
       </div>
 
       <footer className="flex border-t border-slate-100 py-5 md:py-8 text-xs text-slate-400 flex-row items-center justify-between">
