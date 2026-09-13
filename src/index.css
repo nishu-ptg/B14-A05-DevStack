@@ -2,5 +2,26 @@
 @plugin "daisyui";
 
 :root {
-  --gradient-bg: linear-gradient(to right, #ff5722, #d81b7e, #7c3aed);
+  --color-orange: #FF5722;
+  --color-pink: #E91E63;
+  --color-violet: #9C27B0;
+
+  --gradient-orange-pink-violet: linear-gradient(
+    to right,
+    var(--color-orange),
+    var(--color-pink),
+    var(--color-violet)
+  );
+
+  --gradient-orange-pink: linear-gradient(
+    to right,
+    var(--color-orange),
+    var(--color-pink)
+  );
+
+  --gradient-pink-violet: linear-gradient(
+    to right,
+    var(--color-pink),
+    var(--color-violet)
+  );
 }

@@ -48,7 +48,7 @@ const Technologies = () => {
       <div className="flex-1 flex flex-col justify-center items-center md:items-start">
         <h2 className="font-inter font-extrabold text-2xl md:text-4xl tracking-tight">
           Explore the &nbsp;
-          <span className="bg-(image:--gradient-bg) bg-clip-text text-transparent">
+          <span className="bg-(image:--gradient-pink-violet) bg-clip-text text-transparent">
             Technologies
           </span>
         </h2>
@@ -59,7 +59,16 @@ const Technologies = () => {
 
       <div className="flex flex-col md:flex-row gap-4 md:gap-8 pb-14 border-b border-slate-100">
         <section className="w-full md:w-3/4">
-          <Suspense fallback={<div>Loading technologies...</div>}>
+          <Suspense
+            fallback={
+              <div className="flex flex-col items-center justify-center py-16">
+                <div className="h-8 w-8 animate-spin rounded-full border-4 border-slate-200 border-t-pink-500"></div>
+                <p className="mt-4 text-sm text-slate-500">
+                  Loading technologies...
+                </p>
+              </div>
+            }
+          >
             <TechSection
               techPromise={techPromise}
               stack={stack}

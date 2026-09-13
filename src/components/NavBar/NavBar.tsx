@@ -42,7 +42,12 @@ const NavBar = () => {
         </div>
       </nav>
 
-      <NavMenuMobile items={menuItems} isOpen={isMobileOpen} />
+      <NavMenuMobile
+        items={menuItems}
+        isOpen={isMobileOpen}
+        activeItem={activeItem}
+        onItemClick={setActiveItem}
+      />
     </>
   );
 };

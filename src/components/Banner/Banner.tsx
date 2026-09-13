@@ -8,7 +8,7 @@ const Banner = () => {
           <h1 className="font-inter font-extrabold text-3xl md:text-6xl tracking-tight mb-3 md:mb-6">
             <span className="text-slate-900">Build Your Ideal</span>
             <br />
-            <span className="bg-(image:--gradient-bg) bg-clip-text text-transparent">
+            <span className="bg-(image:--gradient-orange-pink-violet) bg-clip-text text-transparent">
               Development Stack
             </span>
           </h1>
@@ -19,7 +19,7 @@ const Banner = () => {
             project.
           </p>
           <div className="flex gap-4 w-full md:w-auto font-inter font-semibold text-sm">
-            <button className="btn flex-1 md:min-w-44 p-3 rounded-lg bg-(image:--gradient-bg) text-white">
+            <button className="btn flex-1 md:min-w-44 p-3 rounded-lg bg-(image:--gradient-orange-pink) text-white">
               Explore Technologies
             </button>
             <button className="btn flex-1 md:min-w-44 p-3 rounded-lg">
