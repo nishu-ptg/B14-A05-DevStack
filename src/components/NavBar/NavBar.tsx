@@ -12,7 +12,7 @@ const NavBar = () => {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 bg-white border-b border-slate-100 font-bold md:font-medium text-xs md:text-sm">
+      <nav className="sticky top-0 z-100 bg-white/90 backdrop-blur-lg border-b border-slate-100 font-bold md:font-medium text-xs md:text-sm">
         <div className="container mx-auto px-5">
           <div className="flex items-center justify-between h-10 md:h-20">
             <button
