@@ -26,6 +26,19 @@ const Technologies = () => {
     toast.success(`${item.name} added successfully!`);
   };
 
+  const handleRemoveFromStack = (item?: ITechItem) => {
+    if (item) {
+      const newStack = stack.filter((t) => t.id !== item.id);
+      setStack(newStack);
+      console.log("Removed:", item.name, "Updated stack:", newStack);
+      toast.warn(`${item.name} removed from stack`);
+    } else {
+      setStack([]);
+      console.log("Cleared stack", stack);
+      toast.info("All technologies removed from stack");
+    }
+  };
+
   return (
     <div className="container mx-auto px-5">
       <div className="flex-1 flex flex-col justify-center items-center md:items-start">
@@ -51,7 +64,7 @@ const Technologies = () => {
           </Suspense>
         </section>
 
-        <StackSidebar stack={stack} />
+        <StackSidebar stack={stack} onRemove={handleRemoveFromStack} />
       </div>
     </div>
   );

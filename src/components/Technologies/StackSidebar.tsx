@@ -1,11 +1,13 @@
+import { toast } from "react-toastify";
 import type { ITechItem } from "../../types/techItem";
 import StackItem from "./StackItem";
 
 interface StackSidebarProps {
   stack: ITechItem[];
+  onRemove: (item?: ITechItem) => void;
 }
 
-const StackSidebar = ({ stack }: StackSidebarProps) => {
+const StackSidebar = ({ stack, onRemove }: StackSidebarProps) => {
   const count = stack.length;
 
   return (
@@ -24,11 +26,20 @@ const StackSidebar = ({ stack }: StackSidebarProps) => {
             Your stack is empty.
           </div>
         ) : (
-          <div className="flex flex-col gap-3">
-            {stack.map((item) => (
-              <StackItem key={item.id} item={item} />
-            ))}
-          </div>
+          <>
+            <div className="flex flex-col gap-3 mb-3">
+              {stack.map((item) => (
+                <StackItem key={item.id} item={item} onRemove={onRemove} />
+              ))}
+            </div>
+
+            <button
+              className="btn btn-outline btn-error btn-sm w-full rounded-lg font-inter font-semibold text-md mt-5"
+              onClick={() => onRemove()}
+            >
+              Remove All
+            </button>
+          </>
         )}
       </div>
     </aside>
