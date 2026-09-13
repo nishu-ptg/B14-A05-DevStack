@@ -28,14 +28,18 @@ const Technologies = () => {
 
   const handleRemoveFromStack = (item?: ITechItem) => {
     if (item) {
-      const newStack = stack.filter((t) => t.id !== item.id);
-      setStack(newStack);
-      console.log("Removed:", item.name, "Updated stack:", newStack);
-      toast.warn(`${item.name} removed from stack`);
+      if (window.confirm(`Remove ${item.name} from stack?`)) {
+        const newStack = stack.filter((t) => t.id !== item.id);
+        setStack(newStack);
+        console.log("Removed:", item.name, "Updated stack:", newStack);
+        toast.warn(`${item.name} removed from stack`);
+      }
     } else {
-      setStack([]);
-      console.log("Cleared stack", stack);
-      toast.info("All technologies removed from stack");
+      if (window.confirm("Are you sure you want to clear the entire stack?")) {
+        setStack([]);
+        console.log("Cleared stack", stack);
+        toast.info("All technologies removed from stack");
+      }
     }
   };
 
