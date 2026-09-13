@@ -57,8 +57,8 @@ const Technologies = () => {
         </p>
       </div>
 
-      <div className="flex flex-col xl:flex-row gap-4 md:gap-8 pb-14 border-b border-slate-100">
-        <section className="w-full xl:w-3/4">
+      <div className="flex flex-col lg:flex-row gap-4 md:gap-8 pb-14 border-b border-slate-100">
+        <section className="w-full lg:w-3/4">
           <Suspense
             fallback={
               <div className="flex flex-col items-center justify-center py-16">
@@ -77,7 +77,7 @@ const Technologies = () => {
           </Suspense>
         </section>
 
-        <aside className="w-full xl:w-1/4">
+        <aside className="w-full lg:w-1/4">
           <StackSidebar stack={stack} onRemove={handleRemoveFromStack} />
         </aside>
       </div>
