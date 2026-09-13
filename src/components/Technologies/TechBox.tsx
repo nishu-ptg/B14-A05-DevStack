@@ -3,9 +3,11 @@ import { TiStarFullOutline } from "react-icons/ti";
 
 interface TechBoxProps {
   item: ITechItem;
+  isAdded: boolean;
+  onAdd: (item: ITechItem) => void;
 }
 
-const TechBox = ({ item }: TechBoxProps) => {
+const TechBox = ({ item, isAdded, onAdd }: TechBoxProps) => {
   return (
     <div className="card border border-slate-100 rounded-xl shadow-md">
       <div className="card-body">
@@ -34,8 +36,13 @@ const TechBox = ({ item }: TechBoxProps) => {
         </div>
 
         <div className="card-actions justify-end mt-3">
-          <button className="btn btn-neutral btn-block rounded-xl cursor-pointer">
-            Add to Stack
+          <button
+            className={`btn btn-block rounded-xl cursor-pointer ${
+              isAdded ? "" : "btn-neutral"
+            }`}
+            onClick={() => onAdd(item)}
+          >
+            {isAdded ? "Added to Stack" : "Add to Stack"}
           </button>
         </div>
       </div>

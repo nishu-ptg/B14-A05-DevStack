@@ -1,6 +1,8 @@
 import { Suspense, useState } from "react";
 import TechSection from "./TechSection";
 import type { ITechItem } from "../../types/techItem";
+import { toast } from "react-toastify";
+import StackSidebar from "./StackSidebar";
 
 const techFetch = async (): Promise<ITechItem[]> => {
   const res = await fetch("/data.json");
@@ -10,6 +12,19 @@ const techFetch = async (): Promise<ITechItem[]> => {
 
 const Technologies = () => {
   const [techPromise] = useState(() => techFetch());
+
+  const [stack, setStack] = useState<ITechItem[]>([]);
+
+  const handleAddToStack = (item: ITechItem) => {
+    if (stack.some((t) => t.id === item.id)) {
+      console.log("Already in stack:", stack);
+      toast.error(`${item.name} is already in your stack!`);
+      return;
+    }
+    setStack([...stack, item]);
+    console.log("Updated stack:", [...stack, item]);
+    toast.success(`${item.name} added successfully!`);
+  };
 
   return (
     <div className="container mx-auto px-5">
@@ -28,13 +43,15 @@ const Technologies = () => {
       <div className="flex flex-col md:flex-row gap-4 md:gap-8 pb-14 border-b border-slate-100">
         <section className="w-full md:w-3/4">
           <Suspense fallback={<div>Loading technologies...</div>}>
-            <TechSection techPromise={techPromise} />
+            <TechSection
+              techPromise={techPromise}
+              stack={stack}
+              onAdd={handleAddToStack}
+            />
           </Suspense>
         </section>
 
-        <aside className="w-full md:w-1/4 bg-red-50">
-          "Your Stack" section will be here
-        </aside>
+        <StackSidebar stack={stack} />
       </div>
     </div>
   );
