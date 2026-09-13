@@ -1,4 +1,3 @@
-import { toast } from "react-toastify";
 import type { ITechItem } from "../../types/techItem";
 import { IoCloseOutline } from "react-icons/io5";
 
