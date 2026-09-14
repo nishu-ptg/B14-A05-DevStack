@@ -1,6 +1,13 @@
+import { GoDotFill } from "react-icons/go";
 import logoText from "../../assets/logo-text.png";
 import type { ILinkItem } from "../../types/linkItem";
 import FooterLinks from "./FooterLinks";
+
+const socialLinks: ILinkItem[] = [
+  { label: "GitHub" },
+  { label: "Twitter" },
+  { label: "LinkedIn" },
+];
 
 const productLinks: ILinkItem[] = [
   { label: "Home" },
@@ -33,16 +40,18 @@ const Footer = () => {
               modern software.
             </p>
 
-            <ul className="flex items-center gap-4 text-xs text-semibold text-slate-800">
-              <li>
-                <a href="#">GitHub</a>
-              </li>
-              <li>
-                <a href="#">Twitter</a>
-              </li>
-              <li>
-                <a href="#">LinkedIn</a>
-              </li>
+            <ul className="flex items-center text-xs font-semibold text-slate-800">
+              {socialLinks.map((link, i) => (
+                <li key={link.label} className="flex items-center">
+                  {i > 0 && (
+                    <span className="mx-4 text-slate-500">
+                      <GoDotFill size={10} className="md:hidden" />
+                    </span>
+                  )}
+
+                  <a href={link.href || "#"}>{link.label}</a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
